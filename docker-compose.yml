@@ -1,0 +1,25 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  tvmazeworker:
+    build:
+        context: .
+        dockerfile: TvMazeWorkerService/Dockerfile
+    ports:
+      - "8000:5000"
+    links:
+      - mongo
+  tvmazeapi:
+    build:
+        context: .
+        dockerfile: TvMazeWebApi/Dockerfile
+    ports:
+      - "180:80"
+      - "1443:443"
+    environment:
+        ASPNETCORE_ENVIRONMENT: Development 
+    links:
+      - mongo
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
