@@ -9,6 +9,6 @@ How to run:
 - Try GET Shows method using swagger UI
 
 Notes:
-- It will take some time for the database to fill initially (about one hour), first it will get all the shows and after that all the cast info.
+- It will take some time for the database to fill initially. It takes approx one hour for the show and then multiple hours for the cast info.
 - Currently only tested on windows os, but 'should' build and run on linux
 - Ofcourse there are many improvements possible, it's a simple application now
