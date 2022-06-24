@@ -11,7 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.Configure<TvMazeDatabaseSettings>(builder.Configuration.GetSection("TvMazeDatabase"));
-builder.Services.AddSingleton<IStorageService, StorageService>();
+builder.Services.AddScoped<IStorageService, StorageService>();
 
 var app = builder.Build();
 

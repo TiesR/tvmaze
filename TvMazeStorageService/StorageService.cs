@@ -30,7 +30,6 @@ namespace TvMazeStorageService
 
             }
 
-
             _showsCollection = mongoDatabase.GetCollection<Show>(
                 tvMazeDatabaseSettings.Value.ShowsCollectionName);
             _personsCollection = mongoDatabase.GetCollection<Person>(
@@ -49,9 +48,6 @@ namespace TvMazeStorageService
 
         public async Task<Show> GetMostRecentShowAsync() =>
             await _showsCollection.Find(_ => true).SortByDescending(s => s.id).FirstOrDefaultAsync();
-
-        //    public async Task<Show?> GetAsync(int id) =>
-        //        await _showsCollection.Find(x => x.id == id).FirstOrDefaultAsync();
 
         public async Task CreateOrUpdateShowAsync(Show newShow)
         {

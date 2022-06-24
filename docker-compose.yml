@@ -4,8 +4,6 @@ services:
     build:
         context: .
         dockerfile: TvMazeWorkerService/Dockerfile
-    ports:
-      - "8000:5000"
     links:
       - mongo
   tvmazeapi:
@@ -23,3 +21,8 @@ services:
     image: mongo:latest
     ports:
       - "27017:27017"
+    volumes:
+      - mongodata:/data/db
+
+volumes:
+  mongodata:
